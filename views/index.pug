@@ -3,22 +3,15 @@ extends layout
 block content
   h1= title
   p Welcome #{title}
-   button(type="button", class="btn btn-info", onclick = "goFaster()") Press Me
-    br
-  div(id="faster") Increase the speed
-  div(id="faster") Increase the speed
+
+  button(type="button", class="btn btn-info" onclick="goFaster()") Press Me
+  div#faster Increase the speed 
+  a(href="/Apple") Search Results of Apples
   script.
     let mph = 20;
     let change = 1;
-
-    function goFaster(){
+    function goFaster() {
       mph += change;
-      change++;
-
-      let result = document.getElementById("faster");
-
-      result.innerHTML = "MPH " + mph + " with change" + change;
+      change += 1;
+      document.getElementById('faster').textContent = `MPH ${mph} with change ${change}`; 
     }
-     br 
-     br
-    a(href="Apple") Click here for Apple Search
