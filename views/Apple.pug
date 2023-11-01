@@ -2,34 +2,14 @@ extends layout
 
 block content
   h1= title
-  -
-    let results = [
-      {
-        "Apple-category": "shimla",
-        "Apple-colour": "Green",
-        "Apple-cost": 40
-      },
-      {
-        "Apple-category": "Gala",
-        "Apple-colour": "Red",
-        "Apple-cost": 80
-      },
-      {
-        "Apple-category": "Fuji",
-        "Apple-colour": "Yellow",
-        "Apple-cost": 60
-      },                   
-    ]
-  div(class= "container-fluid")
-    div(class = "row")
-      each item,index in results
-        div(class= "col-sm-2", onclick=`buy(${index})`) category: #{item.Apple-category}
-        div(class= "col-sm-2", onclick=`buy(${index})`) colour: #{item.Apple-colour}
-        div(class= "col-sm-2", onclick=`buy(${index})`) Cost: #{item.Apple-cost}
-        br
-        br
-        
-  script.
-    function buy(itemNum){
-      alert(`You purchased item ${itemNum+1}`)
-    }
+  - var results =[{name:"red_Apple", color:"red", price:20},{name:"green_Apple", color:"green", price:30},{name:"yellow_Apple", color: "yellow", price:40}]
+  div(class="container-fluid")
+  div(class="row")
+   each v,index  in results 
+    div(class="col-sm-2" onclick =`buy(${index})`) #{v.name}, #{v.color}, #{v.price}
+    script.
+        function buy(a)
+        {
+            alert(`You purchased Item ${a+1}`)
+            
+        }
